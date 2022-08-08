@@ -1,23 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Counter from './components/Counter';
+// import {createStore} from 'redux';
+import store from './store';
+import { Provider } from 'react-redux';
+
+// const reducer=(state,action)=>{
+//   if(action.type === "UP"){
+//     return {...state, value: state.value + action.step}
+//   }else{
+//     return state;
+//   }
+  
+// }
+// const initialState = {value:0}; // 초기값
+// const store = createStore(reducer, initialState);
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Provider store={store}>
+        <Counter></Counter>
+        </Provider>
     </div>
   );
 }
